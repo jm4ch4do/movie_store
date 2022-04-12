@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'movies.apps.MoviesConfig',
 ]
 
@@ -51,6 +53,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'movie_store.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 TEMPLATES = [
     {
