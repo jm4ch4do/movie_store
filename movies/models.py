@@ -21,3 +21,9 @@ class Book(models.Model):
         return self.title
 
 
+class Character(models.Model):
+
+    name = models.CharField(max_length=30)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='characters')
+
+
