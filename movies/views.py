@@ -1,13 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-
-
-class Another(View):
-
-    def get(self, request):
-        return HttpResponse('This is another function inside class')
+from .models import Book
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse('First message from views')
+    books = Book.objects.all()
+
+    return render(request, 'first_temp.html', {'books': books})
